@@ -3,23 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stable Diffusion Image Generator</title>
+  <title>AI Flashcard Generator</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="container">
-    <h1>AI Image Generator</h1>
-    <form id="imageForm">
-      <label for="prompt">Enter a prompt:</label>
-      <input type="text" id="prompt" placeholder="e.g., Lighthouse on a cliff" required>
-      <button type="submit">Generate Image</button>
+    <h1>AI Flashcard Generator</h1>
+    <form id="flashcardForm">
+      <label for="text">Enter text for the flashcard:</label>
+      <input type="text" id="text" placeholder="e.g., Lighthouse on a cliff" required>
+      <button type="submit">Create Flashcard</button>
     </form>
     <div id="loading" class="hidden">Generating image, please wait...</div>
-    <div id="result">
-      <img id="generatedImage" alt="Generated image will appear here">
+    
+    <div id="flashcard" class="flashcard">
+      <div class="flashcard-inner" id="flashcardInner">
+        <div class="flashcard-front">
+          <p id="flashcardText"></p>
+        </div>
+        <div class="flashcard-back">
+          <!-- Default message if no image generated -->
+          <p id="imagePlaceholder">Image not generated yet</p>
+          <!-- Image will be inserted here -->
+          <img id="generatedImage" class="hidden" alt="Generated image will appear here">
+        </div>
+      </div>
     </div>
+    
+    <button id="flipButton">Flip Card</button>
+    
     <div id="error" class="hidden"></div>
   </div>
+  
   <script src="script.js"></script>
 </body>
 </html>
